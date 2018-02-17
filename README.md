@@ -8,6 +8,9 @@ Auteur: http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/artikel
 
 Admin:  http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/Beheerartikelen.php
 
+Login : http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/inlogblog.php 
+(login met username = gastauteur en wachtwoord = "welkom123" of probeer het als username = gastlezer en wachtwoord = "sesam123")
+
 Trello: https://trello.com/b/X5E88lq8/w5edblog
 
 
