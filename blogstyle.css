@@ -25,6 +25,7 @@ body {
   clear: both;
 }
 
+
 #divmenu {
   background: #33cc33;
   color     : #000000;
@@ -38,6 +39,7 @@ body {
 }
 
 #divinlog {
+
   background: #33cc33;
   color     : #000000;
   border-radius: 20px;
@@ -49,7 +51,32 @@ body {
   border-style : solid;
 }
 
-<<<<<<< HEAD
+button.btnlogin {
+  font-size      : 120%;
+  background-color: Transparent;
+  //background-repeat:no-repeat;
+  border: none;
+  //cursor:pointer;
+  //overflow: hidden;
+}
+
+button.btnlogin:hover  {
+    Color  : #33cc33;
+    background   :  #000000;
+ }
+
+#divmelding {
+  background: #33cc33;
+  color     : #000000;
+  border-radius: 20px;
+  width     : 18%;
+  //margin  : 5%;
+  float   : center;
+  padding : 2%;
+  border-width  : 8px;
+  border-style : solid;
+}
+
 #divfoutboodschap {
   background: #FF3333;
   color     : #000000;
@@ -62,8 +89,6 @@ body {
   border-style : solid;
 }
 
-=======
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
 #divartikelen {
   background: #33cc33;
   color     : #000000;
@@ -75,7 +100,6 @@ body {
   border-width  : 8px;
   border-style : solid;
 }
-
 
 
 table {

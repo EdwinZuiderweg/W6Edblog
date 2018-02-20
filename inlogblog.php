@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 
-=======
-<?php
-  include_once "inlogvalidatie.php";  
-?>
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
 <!DOCTYPE = html>
 <html>
 <head>
@@ -16,16 +10,33 @@
 <meta name = "keywords" content = "gorillablog">
 
 <link rel="stylesheet" href="blogstyle.css">
-<<<<<<< HEAD
-  <script>
 
-     function Verwijderfoutboodschap() {
-        var foutdiv = document.getElementById("divfoutboodschap");
-        foutdiv.innerHTML = "";
-     }
+  <script>
+    function Maakformulier(formsoort) {
+      if (formsoort == 1) {  //inlogformulier
+        var xhttp = new XMLHttpRequest();
+        var myURL = "inlogform.php";
+        xhttp.open("GET", myURL, false);
+        xhttp.send();
+        var formulier = document.getElementById("divformulier");
+        formulier.innerHTML = xhttp.responseText;
+      }
+      if (formsoort == 2) {  //registratieformulier
+        var xhttp = new XMLHttpRequest();
+        var myURL = "registratieform.php";
+        xhttp.open("GET", myURL, false);
+        xhttp.send();
+        var formulier = document.getElementById("divformulier");
+        formulier.innerHTML = xhttp.responseText;
+      }
+    }
+
+    function Verwijderfoutboodschap() {
+      var foutdiv = document.getElementById("divfoutboodschap");
+      foutdiv.innerHTML = "";
+    }
   </script>
-=======
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
+
 </head>
 <body>
 
@@ -35,32 +46,21 @@
    <br>
    <center>
    <div id = "divinlog" class = "clsmenu">
-     <h2>Inloggen:</h2>
+     <button class = "btnlogin" onClick= "JavaScript: Maakformulier(1)">Inloggen</button >
+     <button class = "btnlogin" onClick= "JavaScript: Maakformulier(2)">Registreer</button >
+     <br>
      <fieldset>
-     <form name = "inlogform" method = "post">
-        Gebruikersnaam: <br>
-<<<<<<< HEAD
-        <input type = "text" name= "username" onfocus="Verwijderfoutboodschap()"><br>
-        Wachtwoord: <br>
-        <input type = "password" name = "password" onfocus="Verwijderfoutboodschap()"><br><br>
-        <input type = "submit" name = "btninloggen" value ="inloggen" >
-     </form>
+     <div id = "divformulier">
+      <?php
+         include 'inlogform.php';
+      ?>
+   </div>
    </fieldset>
  </div><br><br>
      <?php
-       include_once "inlogvalidatie.php";
+       include_once "validatie.php";
      ?>
-
  </center>
 
-=======
-        <input type = "text" name= "username"><br>
-        Wachtwoord: <br>
-        <input type = "password" name = "password"><br><br>
-        <input type = "submit" name = "btninloggen" value ="inloggen" >
-     </form>
-   </fieldset>
-   </div>
- </center>
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
+
 </body>

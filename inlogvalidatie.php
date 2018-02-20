@@ -16,48 +16,25 @@
         $Rechten = $row["Rechten"];
         //$PWdb = mysql_result($result, 0);
         if ($PWdb !=  $wachtwoord) {
-<<<<<<< HEAD
           echo  "<div id = \"divfoutboodschap\">";
           echo "Wachtwoord fout.";
           echo  "</div>";
-=======
-           echo "<script>";
-           echo "alert(\"Wachtwoord fout\")";
-           echo "</script>";
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
         }
         else {
           if ($Rechten ==  "auteur") {
             header("Location: artikelinvoer.php");
           }
           else {
-<<<<<<< HEAD
-            //echo "<script>";
-            //echo "fout = document.getElementById(\"divfoutboodschap\")";
             echo  "<div id = \"divfoutboodschap\">";
             echo "Je hebt helaas onvoldoende rechten om te mogen schrijven.";
             echo  "</div>";
-            //echo "fout.innerHTML = \"Je hebt helaas onvoldoende rechten om te mogen schrijven.\")";
-            //echo "alert(\"Gebruikersnaam incorrect\")";
-            //echo "</script>";
-=======
-            echo "<script>";
-            echo "alert(\"Je hebt helaas onvoldoende rechten om te mogen schrijven.\")";
-            echo "</script>";
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
           }
         }
       }
-      else {
-<<<<<<< HEAD
-        echo  "<div id = \"divfoutboodschap\">";            
+     else {
+        echo  "<div id = \"divfoutboodschap\">";
         echo "Gebruikersnaam incorrect.";
         echo  "</div>";
-=======
-        echo "<script>";
-        echo "alert(\"Gebruikersnaam incorrect\")";
-        echo "</script>";
->>>>>>> aea703f2777a1c587c988851f5d5a5bed7a7ecc1
       }
     }
    }
