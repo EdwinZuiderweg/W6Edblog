@@ -13,4 +13,6 @@ Login : http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/inlogbl
 
 Trello: https://trello.com/b/X5E88lq8/w5edblog
 
+- W5-005: Kunnen registreren
+- W5-006: Veilige wachtwoordregistratie (mbv "password_hash" en "password_verify")
 
