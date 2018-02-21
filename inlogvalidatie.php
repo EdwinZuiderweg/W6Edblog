@@ -12,10 +12,10 @@
 
       if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $PWdb =  $row["wachtwoord"];
+        $PWdbhash =  $row["wachtwoord"];
         $Rechten = $row["Rechten"];
         //$PWdb = mysql_result($result, 0);
-        if ($PWdb !=  $wachtwoord) {
+        if (password_verify($PWdbhash, $wachtwoord)) {
           echo  "<div id = \"divfoutboodschap\">";
           echo "Wachtwoord fout.";
           echo  "</div>";

@@ -10,9 +10,9 @@
    echo "Gebruikersnaam: <br>";
    echo "<input type = \"text\" name= \"username\" onfocus=\"Verwijderfoutboodschap()\"><br><br>";
    echo "Wachtwoord: <br>";
-   echo "<input type = \"passwordini\" name = \"passwordini\" onfocus=\"Verwijderfoutboodschap()\"><br><br>";
+   echo "<input type = \"password\" name = \"passwordini\" onfocus=\"Verwijderfoutboodschap()\"><br><br>";
    echo "Herhaal wachtwoord: <br>";
-   echo "<input type = \"passwordrepeat\" name = \"passwordrepeat\" onfocus=\"Verwijderfoutboodschap()\"><br><br>";
+   echo "<input type = \"password\" name = \"passwordrepeat\" onfocus=\"Verwijderfoutboodschap()\"><br><br>";
    echo "<input type = \"submit\" name = \"btninloggen\" value =\"registreer\" >";
    echo "</form>";
 ?>
