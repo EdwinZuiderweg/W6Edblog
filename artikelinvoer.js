@@ -34,7 +34,7 @@ function PlaatsArtikel() {
   var catselnr;
 
 
-  checkboxes = document.getElementsByName('categorie_lijst[]');
+  checkboxes = document.getElementsByName('categorie_lijst');
   catselnr = 0;
   for (var i=0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
@@ -70,20 +70,18 @@ function PlaatsArtikel() {
 function MaakCategorie() {
   var Catnaam = document.getElementById("txtNewCategorie");
   if (Catnaam.value != "") {
-    //bepaal catnr
-    var selcat = document.getElementById("categorie");
-    var newcatnr = selcat.childNodes.length +1;
-    var xhttp = new XMLHttpRequest();
     var myURL = "addcats.php?catnaam=";
-    myURL +=  Catnaam.value + "&catid=" + newcatnr;
+    myURL +=  Catnaam.value;
+    var xhttp = new XMLHttpRequest();
     xhttp.open("POST", myURL, false);
     xhttp.send();
-    //alert(xhttp.responseText);
-    if (xhttp.responseText == "insertOK") { //voeg hem ook toe aan selectielijst
-      var node = document.createElement('option');
-      node.value = "\"" + newcatnr + "\"";
-      node.innerHTML = Catnaam.value;
-      selcat.appendChild(node);
+    if (xhttp.responseText == "insertOK") { //voeg hem ook toe aan checkboxlijst
+      var divcatlijst = document.getElementById('divcategorieen');
+      myURL = "haalcatogorieen.php";
+      xhttp = new XMLHttpRequest();
+      xhttp.open("GET", myURL, false);
+      xhttp.send();
+      divcatlijst.innerHTML = xhttp.responseText;
     }
   }
 }

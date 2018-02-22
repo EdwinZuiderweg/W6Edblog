@@ -7,191 +7,41 @@
 
 <meta name = "description"  content="gorillablog">
 <meta name = "keywords" content = "gorillablog">
-<!--<link rel="stylesheet" href="blogstyle.css">-->
-<!--<script src= "artikelinvoer.js"></script>-->
+<link rel="stylesheet" href="blogstyle.css">
+<script src= "artikelinvoer.js"></script>
 </head>
-<style>
-  body {
-  font-family   : Arial, Helvetica, sans-serif;
-  background: #FFFFEEBB;
-}
-
-#divheader {
-  background: #EECC99;
-  color     : #000088;
-  border-radius: 20px;
-  width   : 70%;
-  padding : 25px;
-  margin  : 5px auto;
-  font-family : arial, sans-serif;
-  font-weight : bold;
-  font-size: 40px;
-}
-
-#divinhoud {
-  background: #FFEECC;
-  color     : #000000;
-  position : absolute;
-  border-radius: 20px;
-  left      : 15%;
-  right     : 15%;
-  top       : 15%;
-  //float   : center;
-  padding : 25px;
-  //margin  : 5px auto;
-  border-width  : 1px;
-  border-style : solid;
-}
-
-.textarea {
-  //width :100%;
-  max-width: 100%;
-}
-</style>
-
-
-<script language= JavaScript" type="text/javascript">
-
-var shortcuts = {
-    "gr" : "Groningen",
-    "cg" : "Code Gorilla",
-    "os" : "Olympische Spelen"
-}
-
-window.onload = function() {
-    var ta = document.getElementById("artContent");
-    var timer = 0;
-    var re = new RegExp("\\b(" + Object.keys(shortcuts).join("|") + ")\\b", "g");
-
-    update = function() {
-      ta.value = ta.value.replace(re, function($0, $1) {
-         return shortcuts[$1.toLowerCase()];
-      });
-    }
-
-    ta.onkeydown = function() {
-      clearTimeout(timer);
-      timer = setTimeout(update, 200);
-    }
-}
-
-
-//******************************************************************************************
-function PlaatsArtikel() {
-  var Artnaam = document.getElementById("artikelNaam");
-  var Inhoud = document.getElementById("artContent");
-  //var Catid = document.getElementById("categorie");
-  var MagReageren =  document.getElementById("reactiestoestaan");
-
-  //probeer de checklist met categorieen uit te lezen.
-  var catsselected = new Array();
-  var catselnr;
-
-
-  checkboxes = document.getElementsByName('categorie_lijst');
-  catselnr = 0;
-  for (var i=0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      catsselected.push(checkboxes[i].value);
-    }
-  }
-
-  MagReageren.checked;
-  //ook controleren of er minimaal 1 categorie is geselecteerd
-
-  if ((Artnaam.value != "") && (Inhoud.value != "") && (catsselected.length > 0)) {
-    //maak eerst een nieuw artikel aan en vraag id terug. Maak dan de "categorieartikel" aan
-    var xhttp = new XMLHttpRequest();
-    var myURL = "blogapi.php?name=";
-    myURL += Artnaam.value + "&artikel=" + Inhoud.value + "&allowreacties=" + MagReageren.checked;
-
-    xhttp.open("POST", myURL, false);
-    xhttp.send();
-    var artid = xhttp.responseText;
-    //plaats nu de "artcats" (koppeltabel). Een record voor elke geselecteede categorie.
-    myURL = "plaatsartcats.php?artnr=" + artid;
-    myURL += "&catlijst=" + catsselected;
-    //alert(myURL);
-    xhttp.open("POST", myURL, false);
-    xhttp.send();
-    alert(xhttp.responseText);
-    //Artnaam.value = "";
-    //Inhoud.value = "";
-  }
-}
-
-//******************************************************************************************
-function MaakCategorie() {
-  var Catnaam = document.getElementById("txtNewCategorie");
-  if (Catnaam.value != "") {
-    var myURL = "addcats.php?catnaam=";
-    myURL +=  Catnaam.value;
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", myURL, false);
-    xhttp.send();
-    if (xhttp.responseText == "insertOK") { //voeg hem ook toe aan checkboxlijst
-      var divcatlijst = document.getElementById('divcategorieen');
-      myURL = "haalcatogorieen.php";
-      xhttp = new XMLHttpRequest();
-      xhttp.open("GET", myURL, false);
-      xhttp.send();      
-      divcatlijst.innerHTML = xhttp.responseText;
-    }
-  }
-}
-
-</script>
 
 <body>
   <div id = "divheader" class = "clsheader">
     <center>GorillaBlog</center>
   </div>
-  <div id = "divinhoud" class = "clsinhoud">
-    <div id = "divbloginvoer" class = "clsbloginvoer">
-        <center><br>
-        <table>
-        <tr>
-          <td>
-            Voeg categorie toe:
-          </td>
-          <td>
-            <input type = "text" id = "txtNewCategorie" name = "Newcategorie">
-          </td>
-          <td>
-            <button onClick="JavaScript: MaakCategorie();">OK</button>
-          </td>
-          <td>
-            <button onclick="window.location.href='Beheerartikelen.php'"> Beheer Artikelen</button>
-          </td>
-        </tr>
-        </table>
-        <fieldset>
-          <h1>Schrijf artikel:</h1>
-        <table>
-        <tr>
-          <td><input type="checkbox" id= "reactiestoestaan" value="1">Reacties toegestaan</td>
-        </tr>
-        </table>
-        <table>
-        <tr>
-          <td>Naam artikel</td><td><b>Categorie:</b></td>
-        </tr>
-        <tr>
-          <td><input type = "text" id = "artikelNaam" name = "artikelNaam" size= "60%" ></td>
-          <td>
-            <?php
-              include 'haalcatogorieen.php';
-            ?>
-          </td>
+  <br><br>
+  <div id = "divartikelinvoer" class = "clsinhoud">
+      <fieldset>
+      Voeg categorie toe:
+      <input type = "text" id = "txtNewCategorie" name = "Newcategorie">
+      <button onClick="JavaScript: MaakCategorie();">OK</button>
 
-        </tr>
-        <table>
-        <br>
-        artikel:<br>
-        <textarea id = "artContent" rows = "10" cols = "140"></textarea><br>
-        <input type = "submit" name = "Plaatsartikel" value = "plaats artikel" onClick="JavaScript: PlaatsArtikel();">
-        </fieldset></center>
-    </div>
+      <span id = "spanBeheerartikelen"><button onclick="window.location.href='Beheerartikelen.php'">Beheer Artikelen</button></span>
+      </fieldset>
+      <fieldset>
+
+      <b>Categorieen:</b><br>
+      <div id = "divcategorieen">
+      <?php
+        include 'haalcatogorieen.php';
+      ?>
+      </div>
+      <div id = "NewArticle">
+
+        <b><Font Size = "5">Schrijf artikel:</font></b><br><br>
+        <b><Font Size = "3">Titel: </font></b><input type = "text" id = "artikelNaam" name = "artikelNaam" size= "60%" >
+        Reacties toegestaan:<input type="checkbox" id= "reactiestoestaan" value="1"><br><br>
+        <b><Font Size = "3">Artikel:</font></b><br>
+         <textarea id = "artContent" rows = "10" cols = "140"></textarea><br><br>
+         <input type = "submit" name = "Plaatsartikel" value = "plaats artikel" onClick="JavaScript: PlaatsArtikel();">
+       </div>
+    </fieldset>
   </div>
 
 </body>
