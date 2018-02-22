@@ -7,21 +7,30 @@
       die("Connection failed: " . $conn->connect_error);
     }
     else {
+      //update stuurtabel formsoort, zodat deze wordt ingeladen bij herladen pagina
+      $sql = "UPDATE formsoort SET formnaam = 'inlogform'" ;
+      $result = $conn->query($sql);
+
       $sql = "SELECT wachtwoord, Rechten FROM Gebruikers where username = '$gebruikersnaam'";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $PWdbhash =  $row["wachtwoord"];
+        echo $PWdbhash . "<br>" . $wachtwoord . "<br>";
         $Rechten = $row["Rechten"];
-        //$PWdb = mysql_result($result, 0);
-        if (password_verify($PWdbhash, $wachtwoord)) {
+
+        if (!password_verify($wachtwoord,$PWdbhash)) {
           echo  "<div id = \"divfoutboodschap\">";
           echo "Wachtwoord fout.";
           echo  "</div>";
         }
         else {
           if ($Rechten ==  "auteur") {
+            //nu loggen we in
+            session_start();
+            $_SESSION["username"] = "testsessieuser"; //$gebruikersnaam;
+            //$_SESSION["password"] = $PWdbhash;
             header("Location: artikelinvoer.php");
           }
           else {

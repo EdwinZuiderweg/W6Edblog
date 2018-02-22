@@ -9,25 +9,17 @@
      $sql = "SELECT catid, catnaam FROM categorieen";
      $result = $conn->query($sql);
      if ($result->num_rows > 0) {
+       echo  "<div id = \"divcategorieen\">";
         while($row = $result->fetch_assoc()) {
           $catid   = $row["catid"];
           $catnaam = $row["catnaam"];
           //echo("<option value  = \"" . $catid . "\">" . $catnaam);
-          echo "<input type=\"checkbox\" id = \"cbcatlijst\" name=\"categorie_lijst[]\" value=\"" . $catid . "\">" . $catnaam . "<br>";
 
+          echo "<input type=\"checkbox\" id = \"cbcatlijst\" name=\"categorie_lijst\" value=\"" . $catid . "\">" . $catnaam . "<br>";
         }
+        echo "</div>";
      }
    }
 
-   //else {
-   //   $sql = "SELECT catid, catnaam FROM categorieen";
-    // $result = $conn->query($sql);
-  //   if ($result->num_rows > 0) {
-  //      while($row = $result->fetch_assoc()) {
-  //        $catid   = $row["catid"];
-  //        $catnaam = $row["catnaam"];
-  //        echo("<option value  = \"" . $catid . "\">" . $catnaam);
-  //      }
-  //    }
-  //   }
+
 ?>

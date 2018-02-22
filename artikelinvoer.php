@@ -5,9 +5,10 @@
 
 <meta charset = utf-8>
 
-<meta name = description  content="gorillablog"
-
-<meta name = keywords content = "gorillablog">
+<meta name = "description"  content="gorillablog">
+<meta name = "keywords" content = "gorillablog">
+<!--<link rel="stylesheet" href="blogstyle.css">-->
+<!--<script src= "artikelinvoer.js"></script>-->
 </head>
 <style>
   body {
@@ -48,6 +49,7 @@
 }
 </style>
 
+
 <script language= JavaScript" type="text/javascript">
 
 var shortcuts = {
@@ -86,7 +88,7 @@ function PlaatsArtikel() {
   var catselnr;
 
 
-  checkboxes = document.getElementsByName('categorie_lijst[]');
+  checkboxes = document.getElementsByName('categorie_lijst');
   catselnr = 0;
   for (var i=0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
@@ -122,20 +124,18 @@ function PlaatsArtikel() {
 function MaakCategorie() {
   var Catnaam = document.getElementById("txtNewCategorie");
   if (Catnaam.value != "") {
-    //bepaal catnr
-    var selcat = document.getElementById("categorie");
-    var newcatnr = selcat.childNodes.length +1;
-    var xhttp = new XMLHttpRequest();
     var myURL = "addcats.php?catnaam=";
-    myURL +=  Catnaam.value + "&catid=" + newcatnr;
+    myURL +=  Catnaam.value;
+    var xhttp = new XMLHttpRequest();
     xhttp.open("POST", myURL, false);
     xhttp.send();
-    //alert(xhttp.responseText);
-    if (xhttp.responseText == "insertOK") { //voeg hem ook toe aan selectielijst
-      var node = document.createElement('option');
-      node.value = "\"" + newcatnr + "\"";
-      node.innerHTML = Catnaam.value;
-      selcat.appendChild(node);
+    if (xhttp.responseText == "insertOK") { //voeg hem ook toe aan checkboxlijst
+      var divcatlijst = document.getElementById('divcategorieen');
+      myURL = "haalcatogorieen.php";
+      xhttp = new XMLHttpRequest();
+      xhttp.open("GET", myURL, false);
+      xhttp.send();      
+      divcatlijst.innerHTML = xhttp.responseText;
     }
   }
 }
@@ -178,11 +178,10 @@ function MaakCategorie() {
         </tr>
         <tr>
           <td><input type = "text" id = "artikelNaam" name = "artikelNaam" size= "60%" ></td>
-          <td><!--<select id = "categorie" name = "selcat">-->
+          <td>
             <?php
               include 'haalcatogorieen.php';
             ?>
-            </select>
           </td>
 
         </tr>

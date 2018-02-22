@@ -10,9 +10,11 @@
 <meta name = "keywords" content = "gorillablog">
 
 <link rel="stylesheet" href="blogstyle.css">
-
   <script>
+    //var intformsoort = 1;
+
     function Maakformulier(formsoort) {
+      //intformsoort = formsoort;
       if (formsoort == 1) {  //inlogformulier
         var xhttp = new XMLHttpRequest();
         var myURL = "inlogform.php";
@@ -30,16 +32,26 @@
         formulier.innerHTML = xhttp.responseText;
       }
     }
-
+    //*************************************************************************
     function Verwijderfoutboodschap() {
       var foutdiv = document.getElementById("divfoutboodschap");
       foutdiv.innerHTML = "";
+    }
+    //*************************************************************************
+    function PWcontrole() {
+      var pw1 = document.getElementById("passwordini");
+      var pw2 = document.getElementById("passwordrepeat");
+      if (pw1.value != pw2.value) {
+        pw1.value = "";
+        pw2.value = "";
+        pw1.focus();
+        alert("wachtwoorden niet gelijk");
+      }
     }
   </script>
 
 </head>
 <body>
-
   <div id = "divheader" class = "clsheader">
     <center>GorillaBlog</center>
   </div>
@@ -51,10 +63,10 @@
      <br>
      <fieldset>
      <div id = "divformulier">
-      <?php
-         include 'inlogform.php';
-      ?>
-   </div>
+     <?php
+       include 'Openformulier.php';  //include 'inlogform.php';
+     ?>
+     </div>
    </fieldset>
  </div><br><br>
      <?php
