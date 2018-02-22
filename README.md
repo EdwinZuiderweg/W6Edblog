@@ -18,3 +18,5 @@ Trello: https://trello.com/b/X5E88lq8/w5edblog
 do 22-2 (11.00):
 - W3-006: bugfixing (nieuwe categorieen werkte niet meer, gefixed)
 - W5-004, W5-005 en W5-006: Validatie.
+do 22-2 (16.30):
+- Styling Artikelinvoer.php
