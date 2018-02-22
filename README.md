@@ -15,4 +15,6 @@ Trello: https://trello.com/b/X5E88lq8/w5edblog
 
 - W5-005: Kunnen registreren
 - W5-006: Veilige wachtwoordregistratie (mbv "password_hash" en "password_verify")
-
+do 22-2 (11.00):
+- W3-006: bugfixing (nieuwe categorieen werkte niet meer, gefixed)
+- W5-004, W5-005 en W5-006: Validatie.
