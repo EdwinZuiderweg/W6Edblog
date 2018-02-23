@@ -20,3 +20,6 @@ do 22-2 (11.00):
 - W5-004, W5-005 en W5-006: Validatie.
 do 22-2 (16.30):
 - Styling Artikelinvoer.php
+
+vr 23-2 (16.30):
+- W5-002: sessies toegevoegd voor 'artikelinvoer.php' en 'Beheerartikelen.php'
