@@ -60,9 +60,7 @@
         artikeldiv.innerHTML = "";
         alert("geen artikel gevonden die voldoen aan zoekfilter");
       }
-
     }
-
   }
 
 </script>

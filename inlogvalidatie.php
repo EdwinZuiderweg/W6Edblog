@@ -29,7 +29,8 @@
           if ($Rechten ==  "auteur") {
             //nu loggen we in
             session_start();
-            $_SESSION["username"] = "testsessieuser"; //$gebruikersnaam;
+            $_SESSION["username"] = $gebruikersnaam;
+            $_SESSION["password"] = $wachtwoord;
             //$_SESSION["password"] = $PWdbhash;
             header("Location: artikelinvoer.php");
           }

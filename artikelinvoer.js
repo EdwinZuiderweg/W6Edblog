@@ -21,6 +21,23 @@ window.onload = function() {
     }
 }
 
+//******************************************************************************************
+function OpenBeheerArtikelen(Gebruikersnaam, Wachtwoord) {
+  var myURL = "sessiestarter.php?username=" + Gebruikersnaam + "&password="  + Wachtwoord;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", myURL, false);
+  xhttp.send();
+  var blnsessiegestart  =xhttp.responseText;
+  if (blnsessiegestart) {
+    window.open("Beheerartikelen.php","_self");
+  }
+  else {
+    alert("er ging iets mis");
+  }
+   //alert("test");
+
+}
 
 //******************************************************************************************
 function PlaatsArtikel() {
