@@ -9,7 +9,7 @@ Auteur: http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/artikel
 Admin:  http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/Beheerartikelen.php
 
 Login : http://www.javastraat.goedgehost.nl/Codegorillaprogs/GorillaBlog/inlogblog.php 
-(login met username = gastauteur en wachtwoord = "welkom123" of probeer het als username = gastlezer en wachtwoord = "sesam123")
+(Je kunt zelf een gebruikersnaam aanmaken door te registreren)
 
 Trello: https://trello.com/b/X5E88lq8/w5edblog
 
@@ -23,3 +23,6 @@ do 22-2 (16.30):
 
 vr 23-2 (16.30):
 - W5-002: sessies toegevoegd voor 'artikelinvoer.php' en 'Beheerartikelen.php'
+
+zo 25-2 (16.30):
+- Nieuwste versie staat nu ook live
