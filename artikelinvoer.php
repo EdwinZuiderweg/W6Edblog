@@ -30,8 +30,7 @@
         echo "Voeg categorie toe:";
         echo "<input type = \"text\" id = \"txtNewCategorie\" name = \"Newcategorie\">";
         echo "<button onClick=\"JavaScript: MaakCategorie();\">OK</button>";
-
-        echo "<span id = \"spanBeheerartikelen\"><button onClick=\"OpenBeheerArtikelen('" . $gebruikersnaam . "','" . $wachtwoord . "')\">Beheer Artikelen</button></span>";
+        echo "<span id = \"spanBeheerartikelen\"><button onClick= window.location.href='Beheerartikelen.php'>Beheer Artikelen</button></span>";
         echo "</fieldset>";
         echo "<fieldset>";
 

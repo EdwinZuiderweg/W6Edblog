@@ -13,14 +13,14 @@
 
 </head>
 <body>
-  <center><h1>Beheer Artikelen<h1><center>
-  <div id = "divcontainer">
 
+  <div id = "divcontainer">
     <div id = "divheader" class = "clsheader">
       <center>GorillaBlog</center>
     </div>
     <br><br>
     <div id = "divartikelinvoer" class = "clsinhoud">
+    <center><h1>Beheer Artikelen</h1><center>
     <?php
       $blnSchrijfrechten = false;
       include "sessiecontrole.php";
@@ -30,7 +30,6 @@
       else {
         echo "U heeft helaas geen schrijfrechten";
       }
-
     ?>
     </div>
   </div>

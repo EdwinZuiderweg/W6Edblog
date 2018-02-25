@@ -8,7 +8,7 @@
     }
     else {
       //update stuurtabel formsoort, zodat deze wordt ingeladen bij herladen pagina
-      $sql = "UPDATE formsoort SET formnaam = 'inlogform'" ;
+      $sql = "UPDATE formsoort SET formnaam = 'inlogform'";
       $result = $conn->query($sql);
 
       $sql = "SELECT wachtwoord, Rechten FROM Gebruikers where username = '$gebruikersnaam'";
